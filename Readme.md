@@ -10,8 +10,11 @@ $ cd MyProject
 $ npm install openzwave-shared
 ```
 
--then the project is ready for your code.
--*dont forget to include the npm lib":
-```
+-then the project is ready for your code
+-dont forget to include the npm lib:
 
+```javascript
+var ZWave = require('./node_modules/openzwave-shared/lib/openzwave-shared.js');
+//and set the driver Path!
+var driverPath = '/dev/serial/by-id/usb-0658_0200-if00';
 ```
