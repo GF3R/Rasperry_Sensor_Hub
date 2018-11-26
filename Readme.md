@@ -10,7 +10,7 @@ The Z-Stick was used in this exmaple_proj
 
 ## How to intialize a new Project:
 - first load the raspberry pi
-- run the[init script](/initialize)  or get the packages yourself
+- run the [init script](https://github.com/GF3R/Rasperry_Sensor_Hub/tree/master/initalize)  or get the packages yourself
 
 ```bash
 $ apt-get update
