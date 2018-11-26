@@ -1,6 +1,6 @@
 # Raspberry Sensor Hub
 
-Git clone thsi repo and run the test project as follows:
+Git clone this repo and run the test project as follows:
 ```
 node startup.js
 ```
@@ -9,7 +9,14 @@ Check below how this can be achieved.
 The Z-Stick was used in this exmaple_proj
 
 ## How to intialize a new Project:
-- first load the raspberry image to the raspberry pi ()
+- first load the raspberry pi
+- run the[init script](/initialize)  or get the packages yourself
+
+```bash
+$ apt-get update
+$ apt-get install nodejs npm
+$ apt-get install libopenzwave-doc libopenzwave1.5 libopenzwave1.5-dev
+```
 - create a new folder and get the NPM packages: 
 
 ```bash 
