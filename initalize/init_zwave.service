@@ -1,10 +1,10 @@
 [Unit]
-Description=LTPS NodeJS Test Application
+Description=Zwave NodeJS Application
 After=network-online.target
 
 [Service]
 Restart=on-failure
-WorkingDirectory=/opt/node-apps/demo0/site/
+WorkingDirectory=/
 ExecStart=/usr/bin/node home/pi/Rasperry_Sensor_Hub/example_proj/init_zwave.js
 
 [Install]

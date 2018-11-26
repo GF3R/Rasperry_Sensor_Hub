@@ -7,5 +7,6 @@ cp ./init_zwave.service /etc/systemd/system/init_zwave.service
 systemctl daemon-reload
 systemctl enable init_zwave.service
 systemctl restart init_zwave.service
+chmod +x update_script.sh
 (crontab -l 2>/dev/null; echo "30 23 * * * home/pi/Raspberry_Sensor_Hub/initialize/update_script.sh") | crontab -
 
