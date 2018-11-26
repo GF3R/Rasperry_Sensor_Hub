@@ -2,6 +2,8 @@
 
 run the inital_install_script as sudo to get all libs and startup the node service
 
-´´´bash
-$ sudo inital_install_script
+´´´ bash
+$ chmod +x inital_install_script.sh
+$ sudo su
+$ .\inital_install_script.sh
 ´´´
