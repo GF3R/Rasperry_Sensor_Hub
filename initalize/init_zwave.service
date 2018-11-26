@@ -1,14 +1,11 @@
 [Unit]
-Description=Node js zwave application
-After=network.target
+Description=LTPS NodeJS Test Application
+After=network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/node home/pi/Rasperry_Sensor_Hub/exampel_proj/init_zwave.js >> /var/log/node.log 2>&1
-WorkingDirectory=/home/pi/Rasperry_Sensor_Hub/exampel_proj
-StandardOutput=inherit
-StandardError=inherit
-Restart=always
-User=pi
+Restart=on-failure
+WorkingDirectory=/opt/node-apps/demo0/site/
+ExecStart=/usr/bin/node home/pi/Rasperry_Sensor_Hub/example_proj/init_zwave.js
 
 [Install]
 WantedBy=multi-user.target
