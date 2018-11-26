@@ -2,7 +2,7 @@
 
 Git clone this repo and run the test project as follows:
 ```bash
-$ cd exmaple_proj
+$ cd example_proj
 $ node init_zwave.js
 ```
 this will only work if you have the usb device configured correctly. 
