@@ -1,8 +1,9 @@
 # Raspberry Sensor Hub
 
 Git clone this repo and run the test project as follows:
-```
-node startup.js
+```bash
+$ cd exmaple_proj
+$ node init_zwave.js
 ```
 this will only work if you have the usb device configured correctly. 
 Check below how this can be achieved.
