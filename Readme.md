@@ -9,7 +9,10 @@ this will only work if you have the usb device configured correctly.
 Check below how this can be achieved.
 The Z-Stick was used in this exmaple_proj
 
-## How to intialize a new Project:
+## First time initialisation:
+
+This Project is created for the raspberry pi therefore we recommend the following steps:
+
 - first get [the raspberry stretch lite](https://www.raspberrypi.org/downloads/raspbian/)
 - run the **[init script](https://github.com/GF3R/Rasperry_Sensor_Hub/tree/master/initalize)** 
 - or get the packages yourself:
@@ -18,6 +21,9 @@ $ apt-get update
 $ apt-get install nodejs npm
 $ apt-get install libopenzwave-doc libopenzwave1.5 libopenzwave1.5-dev
 ```
+
+## How to intialize a new Project:
+
 - create a new folder and get the NPM packages: 
 
 ```bash 
