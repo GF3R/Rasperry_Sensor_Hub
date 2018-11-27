@@ -11,8 +11,8 @@ The Z-Stick was used in this exmaple_proj
 
 ## How to intialize a new Project:
 - first get [the raspberry stretch lite](https://www.raspberrypi.org/downloads/raspbian/)
-- run the [init script](https://github.com/GF3R/Rasperry_Sensor_Hub/tree/master/initalize)  or get the packages yourself
-
+- run the **[init script](https://github.com/GF3R/Rasperry_Sensor_Hub/tree/master/initalize)** 
+- or get the packages yourself:
 ```bash
 $ apt-get update
 $ apt-get install nodejs npm
