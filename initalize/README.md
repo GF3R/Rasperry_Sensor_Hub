@@ -5,6 +5,8 @@ run the inital_install_script as follows:
 ```bash
 $ chmod +x inital_install_script.sh
 $ sudo .\inital_install_script.sh -s 
+# or without the -s if the service is not desired:
+$ sudo .\inital_install_script.sh
 ```
 the option *-s* also enables the service which autostarts the init_zwave as a service.
 
