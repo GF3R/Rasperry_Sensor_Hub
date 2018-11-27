@@ -16,7 +16,11 @@ $ sudo apt-get install git
 $ git clone https://github.com/GF3R/Rasperry_Sensor_Hub.git
 $ cd Raspberry_Sensor_Hub
 ```
-- run the **[init script](https://github.com/GF3R/Rasperry_Sensor_Hub/tree/master/initalize)** 
+- run the **[init script](https://github.com/GF3R/Rasperry_Sensor_Hub/tree/master/initalize)**
+- this enables the following features:
+  - Installs all the required packages
+  - Runs the init_zwave as a service
+  - Enables an auto_update function, which runs at 23:30
 - or get the packages yourself:
 ```bash
 $ apt-get update
