@@ -10,7 +10,7 @@ The Z-Stick was used in this exmaple_proj
 This Project is created for the raspberry pi therefore we recommend the following steps:
 
 - first get [the raspberry stretch lite](https://www.raspberrypi.org/downloads/raspbian/)
-- install Git clone this repo
+- install Git and clone this repo
 ```bash
 $ sudo apt-get install git
 $ git clone https://github.com/GF3R/Rasperry_Sensor_Hub.git
