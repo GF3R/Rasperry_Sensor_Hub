@@ -55,3 +55,12 @@ var driverPath = '/dev/serial/by-id/usb-0658_0200-if00';
 ```bash
 $ lsusb
 ```
+
+## TODO
+
+- Add some sort of config:
+  - Should contain USB Id
+  - Maybe Wlan connections? 
+  - MQTT Connection string
+  - ...
+- Write the code
