@@ -1,8 +1,8 @@
 #!/bin/sh
 echo "installing necessary libs and software"
 apt-get update
-apt-get install nodejs npm
-apt-get install libopenzwave-doc libopenzwave1.5 libopenzwave1.5-dev
+apt-get install -y nodejs npm
+apt-get install -y libopenzwave-doc libopenzwave1.5 libopenzwave1.5-dev
 if [ "$1" = "-s" ]; then
   echo "setting up service"
   cp ./init_zwave.service /etc/systemd/system/init_zwave.service
