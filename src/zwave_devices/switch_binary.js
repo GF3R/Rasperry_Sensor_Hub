@@ -6,6 +6,47 @@ zwave.on('notification', function(nodeid, notif) {
 	console.log('message %d for node %d', notif, nodeid);
 });
 
+zwave.on('node added', function(nodeid) {
+  nodes[nodeid] = {
+    manufacturer: '',
+    manufacturerid: '',
+    product: '',
+    producttype: '',
+    productid: '',
+    type: '',
+    name: '',
+    loc: '',
+    classes: {},
+    ready: false,
+  };
+});
+
+zwave.on('node event', function(nodeid, data) {
+  console.log('node%d event: Basic set %d', nodeid, data);
+});
+
+zwave.on('value added', function(nodeid, comclass, value) {
+  if (!nodes[nodeid]['classes'][comclass])
+    nodes[nodeid]['classes'][comclass] = {};
+  nodes[nodeid]['classes'][comclass][value.index] = value;
+});
+
+zwave.on('value changed', function(nodeid, comclass, value) {
+  if (nodes[nodeid]['ready']) {
+    console.log('node%d: changed: %d:%s:%s->%s', nodeid, comclass,
+      value['label'],
+      nodes[nodeid]['classes'][comclass][value.index]['value'],
+      value['value']);
+  }
+  nodes[nodeid]['classes'][comclass][value.index] = value;
+});
+
+zwave.on('value removed', function(nodeid, comclass, index) {
+  if (nodes[nodeid]['classes'][comclass] &&
+    nodes[nodeid]['classes'][comclass][index])
+    delete nodes[nodeid]['classes'][comclass][index];
+});
+
 zwave.on('node ready', function(nodeid, nodeinfo) {
   nodes[nodeid]['manufacturer'] = nodeinfo.manufacturer;
   nodes[nodeid]['manufacturerid'] = nodeinfo.manufacturerid;
