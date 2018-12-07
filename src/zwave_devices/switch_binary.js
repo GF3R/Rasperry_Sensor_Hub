@@ -14,7 +14,7 @@ let zwave;
 
 
 function setValue(boolVal) {
-	zwave.setValue(nodeid,37,1,0,boolVal);
+	zwave.setValue(this.nodeid,37,1,0,boolVal);
 }
 
 function onMqttRreceived(message) {
