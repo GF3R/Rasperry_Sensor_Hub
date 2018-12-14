@@ -14,3 +14,9 @@ discoveryStick.addDeviceListener(function(nodeid, comclass, valueId){
       break;
   }
 });
+
+discoveryStick.addValueListener(function(nodeid, comclass, data){
+  if(searchStr[nodeid]){
+    searchStr[nodeid].setValueForMqtt(data);
+  }
+});

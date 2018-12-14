@@ -1,22 +1,19 @@
 class SwitchBinary extends Zwave_Device {
 
-let nodeid;
-let zwave;
-
 	constructor(nodeid, zwave) {
+		
 		this.nodeid = nodeid;
 		this.zwave = zwave;
-		this.subscribe(topic, onMqttRreceived);
-
-		//signal to rest that we are here
+		this.subscribe(this.topic, onMqttRreceived);
 	}
-}
 
 
-function setValue(boolVal) {
-	zwave.setValue(this.nodeid,37,1,0,boolVal);
-}
 
-function onMqttRreceived(message) {
-	this.setValue(message);
+	setValue(boolVal) {
+		zwave.setValue(this.nodeid, 37, 1, 0, boolVal);
+	}
+
+	onMqttRreceived(message) {
+		this.setValue(message);
+	}
 }
