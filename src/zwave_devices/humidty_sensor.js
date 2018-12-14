@@ -1,12 +1,12 @@
 class HumidtySensor extends Zwave_Device {
-  
+
   constructor(nodeid, zwave) {
     this.nodeid = nodeid;
     this.zwave = zwave;
   }
 
   publisHumidtyValueForMqtt(data) {
-    this.publish(this.pub_topic+"/humidty", data.humidty); //TODO! needs fixing, dont know how data looks
+    this.publish(this.pub_topic + "/humidty", data.humidty); //TODO! needs fixing, dont know how data looks
   }
 
   _register() {
@@ -20,13 +20,18 @@ class HumidtySensor extends Zwave_Device {
           description: "humdity device",
           created: Date.getTime(),
           updated: Date.getTime(),
-          data: [
-            {
-              name: "humidity",
-              valueType: "double",
-              valueUnit: "percent"
-            }
-          ]
+          data: [{
+            name: "humidity",
+            valueType: "double",
+            valueUnit: "percent"
+          }],
+          events: [{
+            name: "running",
+            parameters: [{
+              name: "value",
+              type: "boolean"
+            }]
+          }]
         },
         json: true
       }).then(function (parsedBody) {
