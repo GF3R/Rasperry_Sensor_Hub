@@ -1,6 +1,7 @@
 example_proj/
 src/node_modules/
 /**node_modules/
+/**.vscode/
 
 # Logs
 logs
