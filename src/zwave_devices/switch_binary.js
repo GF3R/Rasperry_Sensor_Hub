@@ -1,7 +1,8 @@
 const ZwaveDevice = require("../base_devices/zwave_device.js");
-class SwitchBinary extends Zwave_Device {
+class SwitchBinary extends ZwaveDevice {
 
 	constructor(nodeid, zwave) {
+		super();
 		this.nodeid = nodeid;
 		this.zwave = zwave;
 		this._register();
