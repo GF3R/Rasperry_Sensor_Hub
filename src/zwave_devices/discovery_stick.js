@@ -1,7 +1,7 @@
+const ZWave = require('../node_modules/openzwave-shared/lib/openzwave-shared.js');
 class DiscoveryStick {
   constructor(path) {
     var driverPath = path;
-    var ZWave = require('../node_modules/openzwave-shared/lib/openzwave-shared.js');
     this.zwave = new ZWave({
       ConsoleOutput: false
     });
@@ -9,7 +9,7 @@ class DiscoveryStick {
   }
 
   getZwave() {
-    return zwave;
+    return this.zwave;
   }
 
   addDeviceListener(listener){

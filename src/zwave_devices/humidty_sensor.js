@@ -1,3 +1,4 @@
+const ZwaveDevice = require("../base_devices/zwave_device.js");
 class HumidtySensor extends Zwave_Device {
 
   constructor(nodeid, zwave) {
@@ -44,3 +45,5 @@ class HumidtySensor extends Zwave_Device {
       });
   }
 }
+
+module.exports = HumidtySensor;
