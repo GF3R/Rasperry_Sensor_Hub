@@ -23,3 +23,17 @@ discoveryStick.addDeviceListener(function(nodeid, comclass, valueId){
       break;
   }
 });
+
+discoveryStick.addValueListener(function(nodeid, comclass, valueId){
+  logger.trace("valued changed " + valueId.value_id)
+  searchStr = (valueId.value_id+'').split('-').splice(1).join('-')
+  switch(searchStr){
+    case "37-1-0": 
+      deviceList[nodeid] = new SwitchBinary(nodeid, discoveryStick.getZwave());
+      break;
+    case "case": 
+      break;
+    case "case": 
+      break;
+  }
+});

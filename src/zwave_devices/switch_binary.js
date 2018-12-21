@@ -3,10 +3,10 @@ class SwitchBinary extends ZwaveDevice {
 
 
 	constructor(nodeid, zwave) {
-		super();
+		this.deviceUuid = nodeid;
+		super(deviceUuid);
 		this.nodeid = nodeid;
 		this.zwave = zwave;
-		this.deviceUuid = nodeid;
 		this._register();
 		this.subscribe(this.topic,(message) => { this.onMqttRecieved(message) });
 	}
@@ -20,7 +20,6 @@ class SwitchBinary extends ZwaveDevice {
 
 
 	onMqttRreceived(message) {
-e(message);
 		logger.trace("revieved message from mqtt: " + message);
 		this.setValue(message == 1);
 	}
@@ -30,7 +29,7 @@ e(message);
 
 		req_post({
 				method: 'POST',
-				uri: 'http://localhost:3000/',
+				uri: 'https://commander.lab.nexhome.ch/api/Things/Register',
 				body: {
 					thingId: this.deviceUuid,
 					description: "binary switch",

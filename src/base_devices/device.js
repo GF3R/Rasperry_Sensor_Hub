@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 
 class Device {
 
-    constructor() {
+    constructor(deviceUuid) {
 	logger.trace("constructing device");
         this.topicbase = "nexhome/";
         this.brokerUrl = 'mqtts://broker.lab.nexhome.ch';
@@ -16,7 +16,7 @@ class Device {
         };
         this.mqttClient = mqtt.connect(this.brokerUrl, options);
         //Init Pub and Sub topic
-        this.deviceUuid = "dummyid"; //TODO get some sort of id? maybe from zwave?
+        this.deviceUuid = deviceUuid; //TODO get some sort of id? maybe from zwave?
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
 	this.mqttClient.on('error', function (err) {
