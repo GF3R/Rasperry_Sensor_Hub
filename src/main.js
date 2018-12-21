@@ -1,4 +1,6 @@
 const DiscoveryStick = require("./zwave_devices/discovery_stick.js");
+const SwitchBinary = require("./zwave_devices/switch_binary.js");
+
 var discoveryStick = new DiscoveryStick('/dev/serial/by-id/usb-0658_0200-if00');
 var deviceList = [];
 

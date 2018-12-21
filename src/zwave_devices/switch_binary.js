@@ -52,3 +52,5 @@ class SwitchBinary extends Zwave_Device {
 			});
 	}
 }
+
+module.exports = SwitchBinary;
