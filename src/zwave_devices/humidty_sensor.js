@@ -1,7 +1,8 @@
 const ZwaveDevice = require("../base_devices/zwave_device.js");
-class HumidtySensor extends Zwave_Device {
+class HumidtySensor extends ZwaveDevice {
 
   constructor(nodeid, zwave) {
+    super();
     this.nodeid = nodeid;
     this.zwave = zwave;
   }
@@ -36,11 +37,11 @@ class HumidtySensor extends Zwave_Device {
         },
         json: true
       }).then(function (parsedBody) {
-        console.log(parsedBody);
+        logger.trace(parsedBody)
         // POST succeeded...
       })
       .catch(function (err) {
-        console.log(parsedBody);
+        logger.error(parsedBody);
         // POST failed...
       });
   }

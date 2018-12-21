@@ -13,13 +13,14 @@ class SwitchBinary extends ZwaveDevice {
 
 
 	setValue(boolVal) {
-		console.log("setting value: " + boolVal);
+		logger.trace("setting value: " + boolVal);
 		this.zwave.setValue(this.nodeid, 37, 1, 0, boolVal);
 	}
 
 	onMqttRreceived(message) {
-		console.log("revieved message from mqtt: " + message);
-		setValue(message);
+e(message);
+		logger.trace("revieved message from mqtt: " + message);
+		this.setValue(message);
 	}
 
 	_register() {
@@ -48,11 +49,11 @@ class SwitchBinary extends ZwaveDevice {
 				},
 				json: true
 			}).then(function (parsedBody) {
-				console.log(parsedBody);
+				logger.trace(parsedBody);
 				// POST succeeded...
 			})
 			.catch(function (err) {
-				console.log("error");
+				logger.error("error");
 				// POST failed...
 			});
 	}
