@@ -5,7 +5,7 @@ class HumiditySensor extends ZwaveDevice {
     super(nodeid);
     this.nodeid = nodeid;
     this.zwave = zwave;
-   // this._register();
+    this._register();
   }
 
   publishValue(data) {
@@ -13,39 +13,35 @@ class HumiditySensor extends ZwaveDevice {
   }
 
   _register() {
-    var req_post = require('request-promise');
+		var req_post = require('request-promise');
 
-    req_post({
-        method: 'POST',
-        uri: 'http://localhost:3000/',
-        body: {
-          thingId: this.deviceUuid,
-          description: "humidity device",
-          created: Date.getTime(),
-          updated: Date.getTime(),
-          data: [{
-            name: "humidity",
-            valueType: "double",
-            valueUnit: "percent"
-          }],
-          events: [{
-            name: "running",
-            parameters: [{
-              name: "value",
-              type: "boolean"
-            }]
-          }]
-        },
-        json: true
-      }).then(function (parsedBody) {
-        console.log(parsedBody);
-        // POST succeeded...
-      })
-      .catch(function (err) {
-        console.log(err);
-        // POST failed...
-      });
-  }
+		req_post({
+				method: 'POST',
+				uri: 'https://commander.lab.nexhome.ch/api/Things/Register',
+				body: {
+					thingId: "87bcf1d5-968e-44c9-a536-896b3f792b4" + this.deviceUuid,
+					description: "humidity and temp sensor",
+					created: Date.now(),
+					updated: Date.now(),
+					data: [{
+						name: "temperature",
+						valueType: "double",
+						valueUnit: "celcius"
+					}],
+					events: [{
+					
+					}]
+				},
+				json: true
+			}).then(function (parsedBody) {
+				logger.trace(parsedBody);
+				// POST succeeded...
+			})
+			.catch(function (err) {
+				logger.error(err);
+				// POST failed...
+			});
+	}
 }
 
 module.exports = HumiditySensor;
