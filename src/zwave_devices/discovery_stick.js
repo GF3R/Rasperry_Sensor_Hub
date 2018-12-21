@@ -21,3 +21,5 @@ class DiscoveryStick {
   }
 
 }
+
+module.exports = DiscoveryStick;

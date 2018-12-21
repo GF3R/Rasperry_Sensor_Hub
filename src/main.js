@@ -1,5 +1,5 @@
-var DiscoveryStick = require("./zwave_devices/discovery_stick");
-var discoveryStick = DiscoveryStick('/dev/serial/by-id/usb-0658_0200-if00');
+const DiscoveryStick = require("./zwave_devices/discovery_stick.js");
+var discoveryStick = new DiscoveryStick('/dev/serial/by-id/usb-0658_0200-if00');
 var deviceList = [];
 
 discoveryStick.addDeviceListener(function(nodeid, comclass, valueId){
@@ -12,11 +12,5 @@ discoveryStick.addDeviceListener(function(nodeid, comclass, valueId){
       break;
     case "case": 
       break;
-  }
-});
-
-discoveryStick.addValueListener(function(nodeid, comclass, data){
-  if(searchStr[nodeid]){
-    searchStr[nodeid].setValueForMqtt(data);
   }
 });

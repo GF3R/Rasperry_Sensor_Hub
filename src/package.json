@@ -6,7 +6,7 @@
   "dependencies": {
     "openzwave-shared": "^1.4.6",
     "request-promise": "^2.0.0",
-    "request": "^2.0.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
