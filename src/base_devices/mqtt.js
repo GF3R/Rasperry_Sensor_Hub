@@ -16,15 +16,19 @@ class MqttClient {
 
     };
 
-    var mqttClient = mqtt.connect(this.brokerUrl, options);
+    this.mqttClient = mqtt.connect(this.brokerUrl, options);
 
-    mqttClient.on('error', function (err) {
+    this.mqttClient.on('error', function (err) {
       logger.error(err);
     });
 
-    mqttClient.on('connect', function () {
+    this.mqttClient.on('connect', function () {
       logger.debug("Successfully connected")
     });
+  }
+
+  getMqttClient(){
+    return this.mqttClient;
   }
 
 }
