@@ -31,10 +31,10 @@ class SwitchBinary extends ZwaveDevice {
 				method: 'POST',
 				uri: 'https://commander.lab.nexhome.ch/api/Things/Register',
 				body: {
-					thingId: this.deviceUuid,
+					thingId: "87bcf1d5-968e-44c9-a536-896b3f792b4" + this.deviceUuid,
 					description: "binary switch",
-					created: new Date().getTime(),
-					updated: new Date().getTime(),
+					created: "2018-12-21T11:25:52.919Z",
+					updated: "2018-12-21T11:25:52.919Z",
 					data: [{
 						name: "isrunning",
 						valueType: "boolean",
@@ -42,10 +42,10 @@ class SwitchBinary extends ZwaveDevice {
 					}],
 					events: [{
 						name: "running",
-						parameters: [{
-							name: "value",
-							type: "boolean"
-						}]
+						parameters: {
+							key: "value",
+							value: "boolean",
+						}
 					}]
 				},
 				json: true
@@ -54,7 +54,7 @@ class SwitchBinary extends ZwaveDevice {
 				// POST succeeded...
 			})
 			.catch(function (err) {
-				logger.error("error");
+				logger.error(err);
 				// POST failed...
 			});
 	}
