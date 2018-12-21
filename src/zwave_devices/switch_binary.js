@@ -51,7 +51,7 @@ class SwitchBinary extends ZwaveDevice {
 				// POST succeeded...
 			})
 			.catch(function (err) {
-				console.log(parsedBody);
+				console.log(err);
 				// POST failed...
 			});
 	}

@@ -19,7 +19,7 @@ class Device {
 
 
     publish(topic, message) {
-        this.mqttClient.publish(topic, message, function (error, success) {
+        this.mqttClient.publish(this.pub_topic, message, function (error, success) {
             if (error) {
                 console.log(error);
                 //TODO: ErrorHandling
@@ -28,7 +28,7 @@ class Device {
     }
 
     subscribe(topic, onMsgFunc) {
-        this.mqttClient.subscribe(topic, function (error) {
+        this.mqttClient.subscribe(this.sub_topic, function (error) {
             if (error) {
                 console.log(error);
                 //TODO: ErrorHandling
