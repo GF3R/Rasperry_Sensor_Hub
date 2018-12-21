@@ -1,20 +1,27 @@
-const mqtt = require('../node_modules/mqtt/mqtt.js');
+const mqtt = require('mqtt');
 
 class Device {
 
     constructor() {
-
+	console.log("constructing device");
         this.topicbase = "nexhome/";
-        this.brokerUrl = "mqtt://broker.lab.nexhome.ch";
+        this.brokerUrl = 'mqtts://broker.lab.nexhome.ch';
         var options = {
+	    port: 8883,
+	    host: 'broker.lab.nexhome.ch',
+	    clientId: 'iaaaaamAtESTdEVI8CE',
             username: 'superiot',
-            password: new Buffer('strPassword')
+            password: '____',
+	    protocol: 'mqtts'
         };
         this.mqttClient = mqtt.connect(this.brokerUrl, options);
         //Init Pub and Sub topic
         this.deviceUuid = "dummyid"; //TODO get some sort of id? maybe from zwave?
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
+	this.mqttClient.on('error', function (err) {
+		console.log(err);
+	});
 
         this.mqttClient.on('connect', function () {
             console.log("Successfully connected");
