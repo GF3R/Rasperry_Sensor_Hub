@@ -19,7 +19,7 @@ class SwitchBinary extends ZwaveDevice {
 
 	onMqttRreceived(message) {
 		console.log("revieved message from mqtt: " + message);
-		this.setValue(message);
+		setValue(message);
 	}
 
 	_register() {
