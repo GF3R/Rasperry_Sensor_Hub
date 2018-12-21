@@ -3,6 +3,7 @@ class Device {
     constructor(deviceUuid) {
         logger.trace("constructing device");
         //Init Pub and Sub topic
+        this.topicbase = "nexhome/";
         this.deviceUuid = deviceUuid; //TODO get some sort of id? maybe from zwave?
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;

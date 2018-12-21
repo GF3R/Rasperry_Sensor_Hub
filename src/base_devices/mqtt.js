@@ -4,7 +4,6 @@ class MqttClient {
 
   constructor() {
     logger.trace("constructing device");
-    this.topicbase = "nexhome/";
     this.brokerUrl = 'mqtts://broker.lab.nexhome.ch';
     var options = {
       port: 8883,
