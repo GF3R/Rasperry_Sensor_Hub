@@ -5,7 +5,7 @@ class HumiditySensor extends ZwaveDevice {
     super(nodeid);
     this.nodeid = nodeid;
     this.zwave = zwave;
-    this._register();
+    //this._register();
   }
 
   publishValue(data) {

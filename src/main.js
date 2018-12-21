@@ -10,8 +10,9 @@ const MqttClient = require("./base_devices/mqtt.js");
 
 var discoveryStick = new DiscoveryStick('/dev/serial/by-id/usb-0658_0200-if00');
 var deviceList = [];
-
-global.mqttClient = new MqttClient().getMqttClient();
+if(!global.mqttClient){
+  global.mqttClient = new MqttClient().getMqttClient();
+}
 
 discoveryStick.addDeviceListener(function (nodeid, comclass, valueId) {
   logger.trace("Node valued id is." + valueId.value_id)
