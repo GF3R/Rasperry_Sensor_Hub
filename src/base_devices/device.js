@@ -1,7 +1,8 @@
 class Device {
-    topicbase = "nexhome/";
+
 
     constructor() {
+        this.topicbase = "nexhome/";
         this.brokerUrl = "";
         this.mqtt = require('mqtt');
         this.mqttClient = this.mqtt.connect(this.brokerUrl);
