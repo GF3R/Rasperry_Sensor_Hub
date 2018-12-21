@@ -6,7 +6,7 @@ class SwitchBinary extends ZwaveDevice {
 		this.nodeid = nodeid;
 		this.zwave = zwave;
 		this._register();
-		this.subscribe(this.topic, onMqttRreceived);
+		this.subscribe(this.topic, this.onMqttRreceived);
 	}
 
 
