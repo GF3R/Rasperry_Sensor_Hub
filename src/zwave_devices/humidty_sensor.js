@@ -5,7 +5,7 @@ class HumiditySensor extends ZwaveDevice {
     super(nodeid);
     this.nodeid = nodeid;
     this.zwave = zwave;
-    //this._register();
+    this._register();
   }
 
   publishValue(data) {
@@ -21,8 +21,8 @@ class HumiditySensor extends ZwaveDevice {
 				body: {
 					thingId: "87bcf1d5-968e-44c9-a536-896b3f792b4" + this.deviceUuid,
 					description: "humidity and temp sensor",
-					created: Date.now(),
-					updated: Date.now(),
+					created: "2018-12-21T11:25:52.919Z",
+					updated: "2018-12-21T11:25:52.919Z",
 					data: [{
 						name: "temperature",
 						valueType: "double",

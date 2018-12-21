@@ -8,7 +8,7 @@ class MqttClient {
     var options = {
       port: 8883,
       host: 'broker.lab.nexhome.ch',
-      clientId: 'iaaaaamAtESTdEVI8CE',
+      clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
       username: 'superiot',
       password: 'SMARTmeKANU123',
       protocol: 'mqtts'
