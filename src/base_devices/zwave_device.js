@@ -1,3 +1,6 @@
-class Zwave_Device extends Device {
+class ZwaveDevice extends Device {
  
 }
+
+
+module.exports = ZwaveDevice;

@@ -1,3 +1,4 @@
+const ZwaveDevice = require("../base_devices/zwave_device.js");
 class SwitchBinary extends Zwave_Device {
 
 	constructor(nodeid, zwave) {
@@ -10,7 +11,7 @@ class SwitchBinary extends Zwave_Device {
 
 
 	setValue(boolVal) {
-		zwave.setValue(this.nodeid, 37, 1, 0, boolVal);
+		this.zwave.setValue(this.nodeid, 37, 1, 0, boolVal);
 	}
 
 	onMqttRreceived(message) {
