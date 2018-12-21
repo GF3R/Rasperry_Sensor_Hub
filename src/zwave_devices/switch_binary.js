@@ -8,7 +8,9 @@ class SwitchBinary extends ZwaveDevice {
 		this.nodeid = nodeid;
 		this.zwave = zwave;
 		this._register();
-		this.subscribe(this.sub_topic,(message) => { this.onMqttRecieved(message) });
+		this.subscribe(this.sub_topic, (message) => {
+			this.onMqttRecieved(message)
+		});
 	}
 
 
@@ -19,7 +21,7 @@ class SwitchBinary extends ZwaveDevice {
 	}
 
 
-	onMqttRreceived(message) {
+	onMqttRecieved(message) {
 		logger.trace("revieved message from mqtt: " + message);
 		this.setValue(message == 1);
 	}
