@@ -4,7 +4,7 @@ logger.level = 'trace';
 
 const DiscoveryStick = require("./zwave_devices/discovery_stick.js");
 const SwitchBinary = require("./zwave_devices/switch_binary.js");
-const HumiditySensor = require("./zwave_devices/humidity_sensor.js");
+const HumiditySensor = require("./zwave_devices/humidty_sensor.js");
 
 
 var discoveryStick = new DiscoveryStick('/dev/serial/by-id/usb-0658_0200-if00');
@@ -30,13 +30,13 @@ discoveryStick.addValueListener(function(nodeid, comclass, value){
   logger.trace("valued changed " + value.value_id)
   searchStr = (value.value_id+'').split('-').splice(1).join('-')
   switch(searchStr){
+    //Humitity
     case "49-1-5": 
-      console.log(value['value']);
-      deviceList[nodeid].publish(value['value']);
+      deviceList[nodeid].publishValue(value['value']);
       break;
+    //Temperature
     case "49-1-1":
-      deviceList[nodeid].publish(value['value']);
-      console.log("temp: " + value['value']);
+      deviceList[nodeid].publishValue(value['value']);
     case "case": 
       break;
   }
