@@ -28,8 +28,12 @@ class HumiditySensor extends ZwaveDevice {
 						valueType: "double",
 						valueUnit: "celcius"
 					}],
-					events: [{
-					
+          events: [{
+						name: "running",
+						parameters: {
+							key: "noKeyFoYou",
+							value: "boolean",
+						}
 					}]
 				},
 				json: true
