@@ -18,12 +18,12 @@ discoveryStick.addDeviceListener(function (nodeid, comclass, valueId) {
   searchStr = (valueId.value_id + '').split('-').splice(1).join('-')
   switch (searchStr) {
     case "37-1-0":
-      deviceList[nodeid] = new SwitchBinary(nodeid, discoveryStick.getZwave(), mqttClient);
+      deviceList[nodeid] = new SwitchBinary(nodeid, discoveryStick.getZwave());
       break;
     case "132-1-0":
       //132 is Class for devices that are in sleep mode 
       //Needs to be changed!!!!
-      deviceList[nodeid] = new HumiditySensor(nodeid, discoveryStick.getZwave(), mqttClient);
+      deviceList[nodeid] = new HumiditySensor(nodeid, discoveryStick.getZwave());
       break;
   }
 });

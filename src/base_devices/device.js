@@ -10,7 +10,7 @@ class Device {
 
 
     publish(topic, message) {
-        mqttClient.publish(this.pub_topic, message, function (error, success) {
+        mqttClient.publish(topic, message, function (error, success) {
             if (error) {
                 logger.error(error);
                 //TODO: ErrorHandling
@@ -19,7 +19,7 @@ class Device {
     }
 
     subscribe(topic, onMsgFunc) {
-        mqttClient.subscribe(this.sub_topic, function (error) {
+        mqttClient.subscribe(topic, function (error) {
             if (error) {
                 logger.error(error);
                 //TODO: ErrorHandling
