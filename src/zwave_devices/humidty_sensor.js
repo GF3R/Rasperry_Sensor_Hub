@@ -20,18 +20,18 @@ class HumiditySensor extends ZwaveDevice {
 				uri: 'https://commander.lab.nexhome.ch/api/Things/Register',
 				body: {
 					thingId: "87bcf1d5-968e-44c9-a536-896b3f792b4" + this.deviceUuid,
-					description: "humidity and temp sensor",
+					description: "humidity",
 					created: "2018-12-21T11:25:52.919Z",
 					updated: "2018-12-21T11:25:52.919Z",
 					data: [{
-						name: "temperature",
-						valueType: "double",
-						valueUnit: "celcius"
+						name: "isrunning",
+						valueType: "boolean",
+						valueUnit: "running"
 					}],
-          events: [{
+					events: [{
 						name: "running",
 						parameters: {
-							key: "noKeyFoYou",
+							key: "value",
 							value: "boolean",
 						}
 					}]
