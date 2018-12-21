@@ -12,7 +12,7 @@ class Device {
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
 
-        client.on('connect', function () {
+        this.mqttClient.on('connect', function () {
             console.log("Successfully connected");
         });
     }
