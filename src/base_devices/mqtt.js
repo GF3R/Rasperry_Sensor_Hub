@@ -11,12 +11,12 @@ class MqttClient {
       host: 'broker.lab.nexhome.ch',
       clientId: 'iaaaaamAtESTdEVI8CE',
       username: 'superiot',
-      password: '***',
+      password: 'SMARTmeKANU123',
       protocol: 'mqtts'
 
     };
 
-    mqttClient = mqtt.connect(this.brokerUrl, options);
+    var mqttClient = mqtt.connect(this.brokerUrl, options);
 
     mqttClient.on('error', function (err) {
       logger.error(err);
