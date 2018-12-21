@@ -30,8 +30,8 @@ class SwitchBinary extends ZwaveDevice {
 				body: {
 					thingId: this.deviceUuid,
 					description: "binary switch",
-					created: Date.getTime(),
-					updated: Date.getTime(),
+					created: new Date().getTime(),
+					updated: new Date().getTime(),
 					data: [{
 						name: "isrunning",
 						valueType: "boolean",
