@@ -1,4 +1,4 @@
-const ZWave = require('../node_modules/openzwave-shared/lib/mqtt.js');
+const ZWave = require('../node_modules/mqtt/mqtt.js');
 
 class Device {
 
