@@ -7,7 +7,8 @@
     "openzwave-shared": "^1.4.6",
     "request-promise": "^2.0.0",
     "request": "^2.88.0",
-    "mqtt": "^1.0.0"
+    "mqtt": "^1.0.0",
+    "log4js": "^3.0.6"
   },
   "devDependencies": {},
   "scripts": {

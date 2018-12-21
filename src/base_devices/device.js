@@ -3,7 +3,7 @@ const mqtt = require('mqtt');
 class Device {
 
     constructor() {
-	console.log("constructing device");
+	logger.trace("constructing device");
         this.topicbase = "nexhome/";
         this.brokerUrl = 'mqtts://broker.lab.nexhome.ch';
         var options = {
@@ -20,11 +20,11 @@ class Device {
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
 	this.mqttClient.on('error', function (err) {
-		console.log(err);
+		logger.error(err);
 	});
 
         this.mqttClient.on('connect', function () {
-            console.log("Successfully connected");
+            logger.debug("Successfully connected")
         });
     }
 
@@ -32,7 +32,7 @@ class Device {
     publish(topic, message) {
         this.mqttClient.publish(this.pub_topic, message, function (error, success) {
             if (error) {
-                console.log(error);
+                logger.error(error);
                 //TODO: ErrorHandling
             }
         });
@@ -41,7 +41,7 @@ class Device {
     subscribe(topic, onMsgFunc) {
         this.mqttClient.subscribe(this.sub_topic, function (error) {
             if (error) {
-                console.log(error);
+                logger.error(error);
                 //TODO: ErrorHandling
             }
         });
