@@ -14,18 +14,18 @@ class Device {
             password: '***',
 	    protocol: 'mqtts'
         };
-        this.mqttClient = mqtt.connect(this.brokerUrl, options);
+       //this.mqttClient = mqtt.connect(this.brokerUrl, options);
         //Init Pub and Sub topic
         this.deviceUuid = deviceUuid; //TODO get some sort of id? maybe from zwave?
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
-	this.mqttClient.on('error', function (err) {
+	/*this.mqttClient.on('error', function (err) {
 		logger.error(err);
 	});
 
         this.mqttClient.on('connect', function () {
             logger.debug("Successfully connected")
-        });
+        });*/
     }
 
 
