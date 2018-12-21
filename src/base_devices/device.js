@@ -13,7 +13,7 @@ class Device {
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
 
         this.mqttClient.on('connect', function () {
-            console.log("Successfully connected");
+            logger.debug("Successfully connected")
         });
     }
 
@@ -21,7 +21,7 @@ class Device {
     publish(topic, message) {
         this.mqttClient.publish(topic, message, function (error, success) {
             if (error) {
-                console.log(error);
+                logger.error(error);
                 //TODO: ErrorHandling
             }
         });
@@ -30,7 +30,7 @@ class Device {
     subscribe(topic, onMsgFunc) {
         this.mqttClient.subscribe(topic, function (error) {
             if (error) {
-                console.log(error);
+                logger.error(error);
                 //TODO: ErrorHandling
             }
         });
