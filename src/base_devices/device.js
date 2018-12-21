@@ -11,7 +11,7 @@ class Device {
 	    host: 'broker.lab.nexhome.ch',
 	    clientId: 'iaaaaamAtESTdEVI8CE',
             username: 'superiot',
-            password: '***',
+            password: 'SMARTmeKANU123',
 	    protocol: 'mqtts'
         };
        //this.mqttClient = mqtt.connect(this.brokerUrl, options);
