@@ -1,16 +1,27 @@
-const ZWave = require('../node_modules/mqtt/mqtt.js');
+const mqtt = require('mqtt');
 
 class Device {
 
     constructor() {
+	console.log("constructing device");
         this.topicbase = "nexhome/";
-        this.brokerUrl = "";
-        this.mqtt = require('mqtt');
-        this.mqttClient = this.mqtt.connect(this.brokerUrl);
+        this.brokerUrl = 'mqtts://broker.lab.nexhome.ch';
+        var options = {
+	    port: 8883,
+	    host: 'broker.lab.nexhome.ch',
+	    clientId: 'iaaaaamAtESTdEVI8CE',
+            username: 'superiot',
+            password: '____',
+	    protocol: 'mqtts'
+        };
+        this.mqttClient = mqtt.connect(this.brokerUrl, options);
         //Init Pub and Sub topic
-        this.deviceUuid = ""; //TODO get some sort of id? maybe from zwave?
+        this.deviceUuid = "dummyid"; //TODO get some sort of id? maybe from zwave?
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
+	this.mqttClient.on('error', function (err) {
+		console.log(err);
+	});
 
         this.mqttClient.on('connect', function () {
             logger.debug("Successfully connected")
@@ -19,7 +30,7 @@ class Device {
 
 
     publish(topic, message) {
-        this.mqttClient.publish(topic, message, function (error, success) {
+        this.mqttClient.publish(this.pub_topic, message, function (error, success) {
             if (error) {
                 logger.error(error);
                 //TODO: ErrorHandling
@@ -28,7 +39,7 @@ class Device {
     }
 
     subscribe(topic, onMsgFunc) {
-        this.mqttClient.subscribe(topic, function (error) {
+        this.mqttClient.subscribe(this.sub_topic, function (error) {
             if (error) {
                 logger.error(error);
                 //TODO: ErrorHandling

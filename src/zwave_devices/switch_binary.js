@@ -5,8 +5,9 @@ class SwitchBinary extends ZwaveDevice {
 		super();
 		this.nodeid = nodeid;
 		this.zwave = zwave;
+		this.deviceUuid = nodeid;
 		this._register();
-		this.subscribe(this.topic, onMqttRreceived);
+		this.subscribe(this.topic, this.onMqttRreceived);
 	}
 
 
@@ -51,7 +52,7 @@ class SwitchBinary extends ZwaveDevice {
 				// POST succeeded...
 			})
 			.catch(function (err) {
-				logger.error(parsedBody);
+				logger.error("error");
 				// POST failed...
 			});
 	}
