@@ -4,7 +4,7 @@ class Device {
 
     constructor() {
         this.topicbase = "nexhome/";
-        this.brokerUrl = "broker.lab.nexhome.ch";
+        this.brokerUrl = "mqtt://broker.lab.nexhome.ch";
         this.mqtt = require('mqtt');
         var options = {
             username: 'superiot',
@@ -12,7 +12,7 @@ class Device {
         };
         this.mqttClient = this.mqtt.connect(this.brokerUrl, options);
         //Init Pub and Sub topic
-        this.deviceUuid = ""; //TODO get some sort of id? maybe from zwave?
+        this.deviceUuid = "dummyid"; //TODO get some sort of id? maybe from zwave?
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
 
