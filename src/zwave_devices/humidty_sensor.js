@@ -1,14 +1,15 @@
 const ZwaveDevice = require("../base_devices/zwave_device.js");
-class HumidtySensor extends ZwaveDevice {
+class HumiditySensor extends ZwaveDevice {
 
   constructor(nodeid, zwave) {
-    super();
+    super(nodeid);
     this.nodeid = nodeid;
     this.zwave = zwave;
+   // this._register();
   }
 
-  publisHumidtyValueForMqtt(data) {
-    this.publish(this.pub_topic + "/humidty", data.humidty); //TODO! needs fixing, dont know how data looks
+  publishValue(data) {
+    this.publish(this.pub_topic + "/humidity", data);
   }
 
   _register() {
@@ -19,7 +20,7 @@ class HumidtySensor extends ZwaveDevice {
         uri: 'http://localhost:3000/',
         body: {
           thingId: this.deviceUuid,
-          description: "humdity device",
+          description: "humidity device",
           created: Date.getTime(),
           updated: Date.getTime(),
           data: [{
@@ -37,14 +38,14 @@ class HumidtySensor extends ZwaveDevice {
         },
         json: true
       }).then(function (parsedBody) {
-        logger.trace(parsedBody)
+        console.log(parsedBody);
         // POST succeeded...
       })
       .catch(function (err) {
-        logger.error(parsedBody);
+        console.log(err);
         // POST failed...
       });
   }
 }
 
-module.exports = HumidtySensor;
+module.exports = HumiditySensor;

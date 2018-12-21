@@ -13,6 +13,7 @@ class Device {
             username: 'superiot',
             password: '***',
             protocol: 'mqtts'
+
         };
         if (!mqttClient) {
             mqttClient = mqtt.connect(this.brokerUrl, options);

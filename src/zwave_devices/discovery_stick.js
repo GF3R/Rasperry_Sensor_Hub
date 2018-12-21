@@ -22,7 +22,8 @@ class DiscoveryStick {
   }
 
   addValueListener(listener){
-    this.zwave.on('value changend', listener);
+    this.zwave.on('value changed', listener);
+ //   this.zwave.on('value added', listener);
   }
 
 }
