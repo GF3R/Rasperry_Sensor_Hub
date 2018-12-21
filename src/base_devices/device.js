@@ -3,7 +3,7 @@ const mqtt = require('mqtt');
 class Device {
 
     constructor() {
-	console.log("constructing device");
+	logger.trace("constructing device");
         this.topicbase = "nexhome/";
         this.brokerUrl = 'mqtts://broker.lab.nexhome.ch';
         var options = {
@@ -20,7 +20,7 @@ class Device {
         this.pub_topic = this.topicbase + "data/" + this.deviceUuid;
         this.sub_topic = this.topicbase + "event/" + this.deviceUuid;
 	this.mqttClient.on('error', function (err) {
-		console.log(err);
+		logger.error(err);
 	});
 
         this.mqttClient.on('connect', function () {
