@@ -3,8 +3,8 @@ class SwitchBinary extends ZwaveDevice {
 
 
 	constructor(nodeid, zwave) {
+		super(nodeid);
 		this.deviceUuid = nodeid;
-		super(deviceUuid);
 		this.nodeid = nodeid;
 		this.zwave = zwave;
 		this._register();
